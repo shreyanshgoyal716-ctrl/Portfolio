@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shreyansh | B.Tech CSE Student Portfolio</title>
+<!-- SEO: edit these -->
+<meta name="description" content="Portfolio of Shreyansh, a B.Tech CSE student building web projects and solving problems. Open to internships and hackathons.">
+<meta name="keywords" content="portfolio, B.Tech CSE, web developer, DSA, internships, India">
+<meta name="author" content="Shreyansh">
+<meta property="og:title" content="Shreyansh | B.Tech CSE Student Portfolio">
+<meta property="og:description" content="Projects, skills and achievements of a CSE student from India.">
+<meta property="og:type" content="website">
+<!-- Favicon emoji: change the emoji after "text y=" -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== THEME COLORS: edit here ===== */
+:root{--bg:#0a0d1c;--bg2:#11162b;--text:#e8ecff;--muted:#8f98c0;--a1:#3ea6ff;--a2:#9b5cff;--card:#141a33;--line:#252d52;--grad:linear-gradient(135deg,var(--a1),var(--a2))}
+:root[data-theme="light"]{--bg:#f6f7fd;--bg2:#eaecf8;--text:#161a33;--muted:#5b6285;--a1:#1f7ae0;--a2:#7a3ff0;--card:#fff;--line:#d5d9ee}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+section{padding:90px 6vw;max-width:1150px;margin:auto}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:34px;display:inline-block;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-block;padding:12px 26px;border-radius:999px;font-weight:700;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:700;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(110,110,255,.35)}
+.btn.primary{background:var(--grad);color:#fff}
+.btn.ghost{border-color:var(--a1);color:var(--text);background:none}
+:focus-visible{outline:3px solid var(--a1);outline-offset:3px}
+/* Navbar */
+nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 6vw;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-weight:700;font-size:1.2rem}
+.links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.links a{color:var(--muted);font-size:.92rem;padding:4px 0;border-bottom:2px solid transparent}
+.links a.active,.links a:hover{color:var(--text);border-color:var(--a2)}
+#theme{background:none;border:1px solid var(--line);color:var(--text);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem}
+/* Hero */
+#hero-wrap{position:relative;overflow:hidden;background:radial-gradient(circle at 20% 20%,rgba(62,166,255,.18),transparent 50%),radial-gradient(circle at 80% 70%,rgba(155,92,255,.2),transparent 50%)}
+#bg{position:absolute;inset:0;width:100%;height:100%}
+#hero{position:relative;min-height:88vh;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+#hero h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.1}
+.typing{font-size:clamp(1.2rem,3vw,1.7rem);color:var(--a1);min-height:2.2rem;margin:12px 0}
+.typing::after{content:"|";animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.tag{color:var(--muted);max-width:46ch;margin-bottom:26px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.laptop{width:100%;max-width:420px;justify-self:center;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px)}}
+/* About */
+.about{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+.photo{width:210px;height:210px;border-radius:50%;background:var(--grad);padding:4px}
+.photo div{width:100%;height:100%;border-radius:50%;background:var(--bg2) center/cover;display:grid;place-items:center;color:var(--muted);font-size:.85rem;text-align:center}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.fact small{color:var(--muted);display:block}
+/* Skills */
+.skill-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.group{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.group h3{margin-bottom:14px;display:flex;align-items:center;gap:10px;font-size:1.05rem}
+.group h3 svg{width:22px;height:22px;stroke:var(--a1);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chip{display:inline-block;margin:0 6px 8px 0;padding:5px 14px;border-radius:999px;border:1px solid var(--a2);font-size:.88rem;opacity:0;transform:scale(.8);transition:.4s}
+.visible .chip{opacity:1;transform:none}
+/* Projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);border-color:var(--a2);box-shadow:0 14px 34px rgba(120,90,255,.22)}
+.card h3{margin-bottom:8px}.card p{color:var(--muted);font-size:.95rem;margin-bottom:14px}
+.tags span{display:inline-block;font-size:.78rem;background:var(--bg2);border-radius:6px;padding:2px 9px;margin:0 6px 6px 0;color:var(--a1)}
+.card .lnk{display:flex;gap:16px;margin-top:10px;font-weight:700;font-size:.9rem}
+.card .lnk a{color:var(--a1)}.card .lnk a:hover{text-decoration:underline}
+/* Timeline */
+.timeline{border-left:2px solid var(--line);margin-left:8px}
+.tl{position:relative;padding:0 0 28px 28px}
+.tl::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--grad)}
+.tl small{color:var(--a1)}.tl p{color:var(--muted)}
+.list{list-style:none;display:grid;gap:12px}
+.list li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--a2);border-radius:10px;padding:14px 18px}
+/* Resume */
+.resume-box{border:1px dashed var(--a1);border-radius:16px;overflow:hidden;background:var(--card)}
+.resume-box iframe{width:100%;height:520px;border:0;display:block}
+.resume-box .note{padding:10px 16px;color:var(--muted);font-size:.85rem}
+/* Contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:36px}
+.contact a.c{display:block;margin-bottom:12px;color:var(--a1);font-weight:700}
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+textarea{min-height:120px;resize:vertical}
+footer{text-align:center;color:var(--muted);padding:30px;border-top:1px solid var(--line)}
+/* Fade-in on scroll */
+.fade{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.fade.visible{opacity:1;transform:none}
+@media(max-width:800px){#hero,.about,.contact{grid-template-columns:1fr}.laptop{max-width:300px;order:-1}.about{justify-items:center;text-align:center}.links{gap:12px}.links a{font-size:.8rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fade,.chip{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#home" class="logo" id="navName"></a>
+  <div class="links" id="navLinks">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+    <a href="#education">Education</a><a href="#achievements">Achievements</a><a href="#resume">Resume</a><a href="#contact">Contact</a>
+    <button id="theme" aria-label="Toggle dark/light mode">☾</button>
+  </div>
+</nav>
+
+<div id="hero-wrap"><canvas id="bg"></canvas>
+<section id="home"><div id="hero">
+  <div>
+    <p style="color:var(--muted)">Hi, I'm</p>
+    <h1 id="heroName"></h1>
+    <div class="typing" id="typing"></div>
+    <p class="tag" id="tagline"></p>
+    <div class="cta"><a class="btn primary" id="resumeBtn" href="resume.pdf" download>Download Resume</a><a class="btn ghost" href="#projects">View Projects</a></div>
+  </div>
+  <!-- Floating laptop-with-code illustration (inline SVG) -->
+  <svg class="laptop" viewBox="0 0 400 300" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ea6ff"/><stop offset="1" stop-color="#9b5cff"/></linearGradient></defs>
+    <rect x="60" y="30" width="280" height="180" rx="12" fill="#0d1226" stroke="url(#g)" stroke-width="4"/>
+    <circle cx="80" cy="50" r="5" fill="#ff5f56"/><circle cx="98" cy="50" r="5" fill="#ffbd2e"/><circle cx="116" cy="50" r="5" fill="#27c93f"/>
+    <g stroke-linecap="round" stroke-width="6">
+      <line x1="84" y1="82" x2="150" y2="82" stroke="#9b5cff"/><line x1="160" y1="82" x2="230" y2="82" stroke="#3ea6ff"/>
+      <line x1="104" y1="106" x2="190" y2="106" stroke="#3ea6ff"/><line x1="200" y1="106" x2="250" y2="106" stroke="#e8ecff" opacity=".6"/>
+      <line x1="104" y1="130" x2="160" y2="130" stroke="#e8ecff" opacity=".6"/><line x1="170" y1="130" x2="260" y2="130" stroke="#9b5cff"/>
+      <line x1="84" y1="154" x2="130" y2="154" stroke="#3ea6ff"/><line x1="140" y1="154" x2="200" y2="154" stroke="#9b5cff"/>
+    </g>
+    <text x="270" y="190" fill="url(#g)" font-size="34" font-weight="700">&lt;/&gt;</text>
+    <path d="M30 222h340l-24 34H54z" fill="#1b2245" stroke="url(#g)" stroke-width="3"/>
+    <rect x="160" y="234" width="80" height="8" rx="4" fill="#3ea6ff" opacity=".5"/>
+  </svg>
+</div></section></div>
+
+<section id="about" class="fade"><h2>About</h2>
+  <div class="about">
+    <div class="photo"><div id="photo">Add photo<br>(see CONFIG.photo)</div></div>
+    <div><p id="bio"></p><div class="facts" id="facts"></div></div>
+  </div>
+</section>
+
+<section id="skills" class="fade"><h2>Skills</h2><div class="skill-groups" id="skillGroups"></div></section>
+<section id="projects" class="fade"><h2>Projects</h2><div class="grid" id="projectGrid"></div></section>
+<section id="education" class="fade"><h2>Education</h2><div class="timeline" id="eduList"></div></section>
+<section id="achievements" class="fade"><h2>Achievements &amp; Certifications</h2><ul class="list" id="achList"></ul></section>
+
+<section id="resume" class="fade"><h2>Resume</h2>
+  <div class="resume-box">
+    <!-- Preview loads resume.pdf from the same folder -->
+    <iframe src="resume.pdf" title="Resume preview"></iframe>
+    <div class="note">If the preview is blank, the file "resume.pdf" is missing or your browser blocks PDF previews.</div>
+  </div><br>
+  <a class="btn primary" href="resume.pdf" download>Download Resume (PDF)</a>
+</section>
+
+<section id="contact" class="fade"><h2>Contact</h2>
+  <div class="contact">
+    <div><p style="color:var(--muted);margin-bottom:16px">Open to opportunities. Send a message or reach me here:</p>
+      <a class="c" id="cEmail"></a><a class="c" id="cLinkedin" target="_blank" rel="noopener">LinkedIn</a><a class="c" id="cGithub" target="_blank" rel="noopener">GitHub</a></div>
+    <!-- Form opens the visitor's email app (no backend needed). For a real backend, use Formspree/Web3Forms and set the form action. -->
+    <form id="form"><input name="name" placeholder="Your name" required><input name="email" type="email" placeholder="Your email" required><textarea name="msg" placeholder="Your message" required></textarea><button class="btn primary" type="submit">Send message</button></form>
+  </div>
+</section>
+<footer id="foot"></footer>
+
+<script>
+/* =====================================================
+   CONFIG: EDIT EVERYTHING ABOUT YOU HERE
+   ===================================================== */
+const CONFIG = {
+  name: "Shreyansh",                       // <-- your full name
+  roles: ["CSE Student", "Web Developer", "Problem Solver"],
+  tagline: "Turning ideas into clean, working software.",
+  college: "[College Name]",
+  location: "[City], India",
+  cgpa: "[x.x]",
+  year: "2nd Year (3rd Semester)",
+  lookingFor: "[internships / hackathons / open-source / freelance projects]",
+  bio: "B.Tech CSE student at [College Name]. I enjoy [web dev, DSA, AI/ML]. Currently looking for [internships / hackathons / open-source / freelance projects].",
+  photo: "",                                // e.g. "me.jpg" (put the image beside index.html)
+  resume: "resume.pdf",                     // file name of your resume
+  email: "your.email@example.com",
+  linkedin: "https://linkedin.com/in/your-id",
+  github: "https://github.com/your-username",
+  skills: {                                 // group -> list of chips
+    "Languages": ["C", "C++", "Python", "Java"],
+    "Web": ["HTML", "CSS", "JS", "React"],
+    "Tools": ["Git", "GitHub", "VS Code", "MySQL"],
+    "CS Fundamentals": ["DSA", "OOP", "DBMS", "OS"]
+  },
+  projects: [
+    { title: "[Project 1 Name]", desc: "[What it does, tech used, one result/impact]", tech: ["HTML", "CSS", "JS"], github: "https://github.com/your-username/project1", demo: "https://your-demo-link.com" },
+    { title: "[Project 2 Name]", desc: "[What it does, tech used, one result/impact]", tech: ["Python", "MySQL"], github: "https://github.com/your-username/project2", demo: "https://your-demo-link.com" },
+    { title: "[Project 3 Name]", desc: "[What it does, tech used, one result/impact]", tech: ["React", "Node.js"], github: "https://github.com/your-username/project3", demo: "https://your-demo-link.com" }
+  ],
+  education: [
+    { title: "B.Tech in Computer Science & Engineering", place: "[College Name]", when: "[20XX - 20XX]", note: "CGPA: [x.x]" },
+    { title: "Class 12th", place: "[School Name, Board]", when: "[Year]", note: "[xx]%" },
+    { title: "Class 10th", place: "[School Name, Board]", when: "[Year]", note: "[xx]%" }
+  ],
+  achievements: [
+    "[Hackathon name: position / project built]",
+    "[LeetCode / CodeChef rating or problems solved]",
+    "[NPTEL / Coursera certificate name]"
+  ]
+};
+
+/* ===== Icons for skill groups (simple inline SVG paths) ===== */
+const ICONS = {
+  "Languages": '<path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/>',
+  "Web": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+  "Tools": '<path d="M14 6a4 4 0 0 0 5 5l-9 9a2 2 0 0 1-3-3l9-9a4 4 0 0 0-2-2z"/>',
+  "CS Fundamentals": '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/>'
+};
+const $ = id => document.getElementById(id);
+const C = CONFIG;
+
+/* ===== Fill page from CONFIG ===== */
+document.title = C.name + " | B.Tech CSE Student Portfolio";
+$("navName").textContent = "<" + C.name + " />";
+$("heroName").textContent = C.name;
+$("tagline").textContent = C.tagline;
+$("bio").textContent = C.bio;
+$("resumeBtn").href = C.resume;
+if (C.photo) { $("photo").style.backgroundImage = "url(" + C.photo + ")"; $("photo").textContent = ""; }
+[["College", C.college], ["CGPA", C.cgpa], ["Year", C.year], ["Location", C.location]].forEach(([k, v]) =>
+  $("facts").insertAdjacentHTML("beforeend", `<div class="fact"><small>${k}</small>${v}</div>`));
+
+Object.entries(C.skills).forEach(([g, items]) => {
+  $("skillGroups").insertAdjacentHTML("beforeend",
+    `<div class="group fade"><h3><svg viewBox="0 0 24 24">${ICONS[g] || ICONS.Tools}</svg>${g}</h3>` +
+    items.map((s, i) => `<span class="chip" style="transition-delay:${i * 90}ms">${s}</span>`).join("") + `</div>`);
+});
+C.projects.forEach(p => $("projectGrid").insertAdjacentHTML("beforeend",
+  `<article class="card"><h3>${p.title}</h3><p>${p.desc}</p><div class="tags">${p.tech.map(t => `<span>${t}</span>`).join("")}</div>
+   <div class="lnk"><a href="${p.github}" target="_blank" rel="noopener">GitHub</a><a href="${p.demo}" target="_blank" rel="noopener">Live Demo</a></div></article>`));
+C.education.forEach(e => $("eduList").insertAdjacentHTML("beforeend",
+  `<div class="tl"><small>${e.when}</small><h3>${e.title}</h3><p>${e.place} &middot; ${e.note}</p></div>`));
+C.achievements.forEach(a => $("achList").insertAdjacentHTML("beforeend", `<li>${a}</li>`));
+$("cEmail").textContent = C.email; $("cEmail").href = "mailto:" + C.email;
+$("cLinkedin").href = C.linkedin; $("cGithub").href = C.github;
+$("foot").textContent = "© " + new Date().getFullYear() + " " + C.name + ". Built with HTML, CSS and JS.";
+$("form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  location.href = `mailto:${C.email}?subject=${encodeURIComponent("Portfolio message from " + f.get("name"))}&body=${encodeURIComponent(f.get("msg") + "\n\n" + f.get("name") + " (" + f.get("email") + ")")}`;
+});
+
+/* ===== Typing animation ===== */
+let ri = 0, ci = 0, del = false;
+(function type() {
+  const w = C.roles[ri];
+  $("typing").textContent = w.slice(0, ci += del ? -1 : 1);
+  let t = del ? 50 : 100;
+  if (!del && ci === w.length) { del = true; t = 1400; }
+  else if (del && ci === 0) { del = false; ri = (ri + 1) % C.roles.length; t = 400; }
+  setTimeout(type, t);
+})();
+
+/* ===== Theme toggle (remembers choice) ===== */
+const root = document.documentElement;
+function setTheme(t) { root.dataset.theme = t; $("theme").textContent = t === "dark" ? "☾" : "☀"; try { localStorage.setItem("theme", t); } catch (e) {} }
+let saved = null; try { saved = localStorage.getItem("theme"); } catch (e) {}
+setTheme(saved || "dark");
+$("theme").onclick = () => setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+
+/* ===== Fade-in on scroll + active nav link ===== */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }), { threshold: .12 });
+document.querySelectorAll(".fade").forEach(el => io.observe(el));
+const navA = [...document.querySelectorAll("#navLinks a")];
+const spy = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) navA.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
+}), { rootMargin: "-45% 0px -50% 0px" });
+document.querySelectorAll("section[id]").forEach(s => spy.observe(s));
+
+/* ===== Hero particle background ===== */
+(function () {
+  const cv = $("bg"), ctx = cv.getContext("2d"); let W, H, P = [];
+  function size() { W = cv.width = cv.offsetWidth; H = cv.height = cv.offsetHeight; P = Array.from({ length: Math.min(70, W / 16) }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .5, vy: (Math.random() - .5) * .5 })); }
+  size(); addEventListener("resize", size);
+  (function draw() {
+    ctx.clearRect(0, 0, W, H);
+    const col = getComputedStyle(root).getPropertyValue("--a1");
+    P.forEach((p, i) => {
+      p.x = (p.x + p.vx + W) % W; p.y = (p.y + p.vy + H) % H;
+      ctx.fillStyle = col; ctx.globalAlpha = .7; ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, 7); ctx.fill();
+      for (let j = i + 1; j < P.length; j++) {
+        const d = Math.hypot(p.x - P[j].x, p.y - P[j].y);
+        if (d < 110) { ctx.globalAlpha = (1 - d / 110) * .35; ctx.strokeStyle = col; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(P[j].x, P[j].y); ctx.stroke(); }
+      }
+    });
+    requestAnimationFrame(draw);
+  })();
+})();
+</script>
+</body>
+</html>
